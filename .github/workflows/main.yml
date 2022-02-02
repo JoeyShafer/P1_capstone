@@ -8,13 +8,12 @@ jobs:
         uses: actions/checkout@v2
         
       - name: List files in the repository
-        run: java src/p1/P1capstone.java
+        run: java src/p1_capstone/p1capstone.java
             
       - name: Cache Maven packages
         uses: actions/cache@v2
         with:
           path: ~/.m2
           key: ${{ runner.os }}-m2-${{ hashFiles('**/pom.xml') }}
-          restore-keys: ${{ runner.os }}-m2
       - name: Run tests with Maven
         run: mvn -B p1capstoneTest --file pom.xml
